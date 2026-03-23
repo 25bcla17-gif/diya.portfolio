@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diya Sunil - Portfolio</title>
+    <!-- Importing modern fonts from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo"><span>Diya Sunil</span></div>
+        <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="hero" class="section hero">
+        <div class="hero-content">
+            <h2 class="greeting">Hi, I am</h2>
+            <h1 class="name">Diya Sunil</h1>
+            <h3 class="role">BCA Cloud Computing student at Kristu Jayanti Deemed to be University</h3>
+            <p class="intro">[A short tagline about you. Building beautiful, interactive, and highly functional web experiences that leave a lasting impact.]</p>
+            <a href="#contact" class="btn btn-primary">Get In Touch</a>
+        </div>
+        <!-- Decorative glowing orb for modern aesthetics -->
+        <div class="glow-orb"></div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content glass-card">
+            <p class="about-text">
+                I’m a first-year BCA student specializing in Cloud Computing, with a growing interest in technology and software development. As someone new to coding, I’ve started learning the basics of programming and web development. Recently, I took my first step into the practical side by attempting to create a website, which helped me understand how coding concepts come together in real projects.
+            </p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section skills">
+        <h2 class="section-title">My Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>Operating System</h3>
+                <div class="progress-bar"><div class="progress" style="width: 85%;"></div></div>
+            </div>
+            <div class="skill-card">
+                <h3>Data Structure</h3>
+                <div class="progress-bar"><div class="progress" style="width: 80%;"></div></div>
+            </div>
+            <div class="skill-card">
+                <h3>C Programming</h3>
+                <div class="progress-bar"><div class="progress" style="width: 90%;"></div></div>
+            </div>
+            <div class="skill-card">
+                <h3>Python</h3>
+                <div class="progress-bar"><div class="progress" style="width: 85%;"></div></div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-container">
+            <form id="contact-form" class="contact-form glass-card">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required placeholder="Jane Doe">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required placeholder="jane@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="Your message here..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact Information Footer -->
+    <footer class="footer">
+        <div class="footer-info">
+            <p><strong>Email:</strong> <a href="mailto:25bcla17@kristujayanti.com" class="footer-link">25bcla17@kristujayanti.com</a></p>
+            <div class="social-links">
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-icon">LinkedIn</a>
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="social-icon">GitHub</a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-icon">Instagram</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="year"></span> Diya Sunil. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript code -->
+    <script src="script.js"></script>
+
+    <!-- Firebase SDK & Firestore Integration -->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-analytics.js";
+        import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCtXPGsxIHvkDyaKi4jYKX96Alu9vT3Uaw",
+            authDomain: "portfolio-website-8fa27.firebaseapp.com",
+            projectId: "portfolio-website-8fa27",
+            storageBucket: "portfolio-website-8fa27.firebasestorage.app",
+            messagingSenderId: "790280155434",
+            appId: "1:790280155434:web:6921b2e1c0733afebcee53",
+            measurementId: "G-2NJVZJRDFH"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        
+        // Initialize Firestore
+        const db = getFirestore(app);
+
+        // Connect contact form directly with the database
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+                
+                if (name && email && message) {
+                    const submitBtn = contactForm.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.textContent;
+                    
+                    submitBtn.textContent = 'Sending...';
+                    submitBtn.disabled = true;
+                    
+                    try {
+                        // Add a new document to 'messages' collection
+                        await addDoc(collection(db, "messages"), {
+                            name: name,
+                            email: email,
+                            message: message,
+                            timestamp: new Date()
+                        });
+                        
+                        // Show success alert
+                        alert(`Thank you, ${name}! Your message has been saved to the database successfully.`);
+                        contactForm.reset();
+                    } catch (error) {
+                        console.error("Error adding document: ", error);
+                        alert("There was an error sending your message. Please try again.");
+                    } finally {
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
